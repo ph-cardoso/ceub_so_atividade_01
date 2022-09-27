@@ -1,6 +1,7 @@
 import fork.ExemploFork;
 import fork.ForkThread;
 import join.JoinNormal;
+import join.JoinParallel;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -15,6 +16,9 @@ public class App {
         System.out.println(resultsForkThread);
 
         JoinNormal joinNormal = new JoinNormal(resultsForkThread, model, n);
-        System.out.println(joinNormal.joinList());
+        System.out.println(joinNormal.runJoin());
+
+        JoinParallel joinParallel = new JoinParallel(resultsForkThread);
+        System.out.println(joinParallel.runJoin());
     }
 }

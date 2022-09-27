@@ -15,7 +15,7 @@ public class JoinNormal {
         this.splitLength = n;
     }
 
-    public String joinList() {
+    public String runJoin() {
         StringBuilder builder = new StringBuilder(model.length());
         List<String> modelSplitted = Utils.getStrings(model, splitLength);
 //        System.out.println(modelSplitted);

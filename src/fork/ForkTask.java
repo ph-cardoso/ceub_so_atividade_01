@@ -2,7 +2,7 @@ package fork;
 
 import java.util.concurrent.Callable;
 
-public class ForkTask implements Callable {
+public class ForkTask implements Callable<String> {
     private final String data;
 
     public ForkTask(String data) {
@@ -10,7 +10,7 @@ public class ForkTask implements Callable {
     }
 
     @Override
-    public Object call() {
+    public String call() {
 //        System.out.println("Running " + Thread.currentThread().getName() + "...");
         return data.toUpperCase();
     }
