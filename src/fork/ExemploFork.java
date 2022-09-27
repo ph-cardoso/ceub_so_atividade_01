@@ -7,16 +7,18 @@ import java.util.concurrent.ForkJoinTask;
 
 public class ExemploFork extends RecursiveAction {
 
-    public String palavra;
-    public static final int LIMITE = 8;
+    private final String palavra;
+    private static final int LIMITE = 12;
+
+    private static List<String> resultList;
+
     public ExemploFork(String palavra) {
         this.palavra = palavra;
     }
 
     private void transformaPalavra() {
         String resultado = palavra.toUpperCase();
-        System.out.println("O resultado é:" + resultado + " e foi processsado"
-                + " por: " + Thread.currentThread().getName());
+        resultList.add(resultado);
     }
 
     @Override
@@ -40,7 +42,9 @@ public class ExemploFork extends RecursiveAction {
         return subTarefas;
     }
 
-    public void runFork() {
+    public List<String> runFork() {
+        resultList = new ArrayList<>();
         this.compute();
+        return resultList;
     }
 }
